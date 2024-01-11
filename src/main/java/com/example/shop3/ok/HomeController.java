@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.util.StringUtils;
+
 
 import java.io.IOException;
 import java.util.Base64;
@@ -128,6 +130,13 @@ public class HomeController {
                           @RequestParam("name") String name,
                           @RequestParam("email") String email,
                           @RequestParam("phone") String phone) {
+
+        if (StringUtils.isEmpty(name) || StringUtils.isEmpty(email) || StringUtils.isEmpty(phone)) {
+            // Одно или несколько полей не заполнены
+            // Вернуть пользователя на страницу с сообщением об ошибке
+            return "redirect:/buy/{id}?error=fields";
+        }
+
         Items item = itemRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Item not found"));
 
         Orders orders = new Orders();
