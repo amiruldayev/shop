@@ -19,14 +19,21 @@ public class Orders {
     @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "orderid")
     private Long orderid;
+
     @Column(name = "name", length = 200)
     private String name;
+
     @Column(name = "email", length = 500)
     private String email;
+
     @Column(name = "phone")
     private String phone;
 
+    @ManyToOne
+    @JoinColumn(name = "item_id")
+    private Items item;
 
 }

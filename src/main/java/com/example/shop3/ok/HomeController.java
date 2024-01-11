@@ -124,21 +124,22 @@ public class HomeController {
     }
 
     @PostMapping("/buy/{id}")
-    public String buyPost(@RequestParam("name") String name,
+    public String buyPost(@PathVariable Long id,
+                          @RequestParam("name") String name,
                           @RequestParam("email") String email,
                           @RequestParam("phone") String phone) {
+        Items item = itemRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Item not found"));
 
         Orders orders = new Orders();
         orders.setName(name);
         orders.setEmail(email);
         orders.setPhone(phone);
-
-
-
+        orders.setItem(item);
 
         orderRepository.save(orders);
         return "redirect:/";
     }
+
 
 
 

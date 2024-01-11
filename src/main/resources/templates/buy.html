@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Shop:Order</title>
     <link type="text/css" rel="stylesheet" th:href="@{'/css/bootstrap.min.css'}">
     <script type="text/javascript" th:src="@{'/js/bootstrap.bundle.js'}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -135,11 +135,6 @@
             border-top: 1px solid rgba(0,0,0,.2);
         }
 
-        .t706__orderform {
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-
         .t-name {
             font-family: 'TildaSans',Arial,sans-serif;
             font-weight: 600;
@@ -259,10 +254,6 @@
             padding-bottom: 70px;
         }
 
-        .t-form__errorbox-bottom {
-            display: none;
-        }
-
         .t706__product-imgdiv {
             width: 70px;
             height: 70px;
@@ -360,22 +351,6 @@
             margin-bottom: 20px;
         }
 
-        .t706__cartwin-totalamount-wrap {
-            padding-top: 15px;
-            display: none;
-            font-weight: 600;
-            text-align: right;
-            color: #000;
-        }
-
-        .t-form__errorbox-middle {
-            width: 100%;
-        }
-
-        .t-form__errorbox-middle  {
-            margin-top: 15px;
-        }
-
         .t-form__submit  {
             display: block;
             text-align: center;
@@ -384,17 +359,6 @@
             margin-top: 30px;
             margin-bottom: 10px;
             width: 100%;
-        }
-
-        .t-form__errorbox-wrapper {
-            font-family: 'TildaSans',Arial,sans-serif;
-        }
-
-        .t-form__errorbox-wrapper {
-            background: #f95d51;
-            padding: 10px;
-            text-align: center;
-            margin-bottom: 20px;
         }
 
         img {
@@ -473,17 +437,6 @@
             outline: none;
         }
 
-        .t-form__errorbox-text {
-            font-family: 'TildaSans',Arial,sans-serif;
-        }
-
-        .t-form__errorbox-text {
-            list-style: none;
-            color: #fff;
-            box-sizing: border-box;
-            padding: 0 10px 10px 10px;
-        }
-
         .t-records ul {
             padding-left: 20px;
             margin-top: 0;
@@ -539,22 +492,9 @@
             margin-top: 5px;
         }
 
-        .t-form__errorbox-item {
-            font-family: 'TildaSans',Arial,sans-serif;
-        }
-
-        .t-form__errorbox-item {
-            margin-top: 10px;
-            display: none;
-        }
-
-
         /* These were inline style tags. Uses id+class to override almost everything */
         #style-YoNPl.style-YoNPl {
             display: none;
-        }
-        #style-G8M6V.style-G8M6V {
-            background-image:url('https://static.tildacdn.info/tild6338-3831-4334-b365-343965393562/14432770907_d8dc8e3fb4_o.jpg');
         }
         #style-8c3ff.style-8c3ff {
             width:16px;
@@ -598,78 +538,11 @@
             color:#000000;
             border:1px solid #000000;
         }
-        #style-ziIWg.style-ziIWg {
-            display: none;
-        }
-        #style-TXY3p.style-TXY3p {
-            margin-top: 10px;
-            font-size:14px;
-            font-weight:400;
-        }
-        #style-1qOnq.style-1qOnq {
-            display:none;
-        }
-        #style-gD1np.style-gD1np {
-            display: none;
-        }
-        #style-CDbKX.style-CDbKX {
-            display: none;
-        }
-        #style-cOQpa.style-cOQpa {
-            display: none;
-        }
-        #style-lWNHp.style-lWNHp {
-            display: none;
-        }
-        #style-O8bG4.style-O8bG4 {
-            display: none;
-        }
-        #style-YR7UF.style-YR7UF {
-            display: none;
-        }
-        #style-aFF4H.style-aFF4H {
-            display: none;
-        }
-        #style-7m3m6.style-7m3m6 {
-            color:#ffffff;
-            background-color:#000000;
-        }
-        #style-5WpD6.style-5WpD6 {
-            display:none;
-        }
-        #style-QDYcc.style-QDYcc {
-            display: none;
-        }
-        #style-D3o1P.style-D3o1P {
-            display: none;
-        }
-        #style-1d7FK.style-1d7FK {
-            display: none;
-        }
-        #style-boErq.style-boErq {
-            display: none;
-        }
-        #style-qQrYF.style-qQrYF {
-            display: none;
-        }
-        #style-HRLGe.style-HRLGe {
-            display: none;
-        }
-        #style-sYIfy.style-sYIfy {
-            display: none;
-        }
-        #style-KLWVj.style-KLWVj {
-            position: absolute;
-            left: -5000px;
-            bottom: 0;
-            display: none;
-        }
 
     </style>
 </head>
 <body>
 <div th:insert="blocks/header :: header"></div>
-<form th:action="@{'/buy'}" method="post" class="mx-auto" enctype="multipart/form-data">
 
 <div class="t706__cartwin-content snipcss-XoTsC">
     <div class="t706__cartwin-top">
@@ -727,8 +600,7 @@
       </span>
         </div>
     </div>
-    <div class="t706__orderform ">
-        <form id="form689210376" name="form689210376" role="form" action="" method="POST" data-formactiontype="0" data-inputbox=".t-input-group" class="t-form js-form-proccess t-form_inputs-total_3" data-formsended-callback="t706_onSuccessCallback" data-formcart="y">
+    <form th:action="@{'/buy/' + ${itm.id}}" method="post" class="mx-auto" enctype="multipart/form-data">
             <input type="hidden" name="tildaspec-formname" tabindex="-1" value="Cart">
             <div class="js-successbox t-form__successbox t-text t-text_md style-BNDsn" aria-live="polite" id="style-BNDsn">
             </div>
@@ -738,7 +610,7 @@
                         Your name
                     </label>
                     <div class="t-input-block ">
-                        <input type="text" autocomplete="name" name="Name" id="input_1496239431201"  class="t-input js-tilda-rule  style-mTPoK" value="" data-tilda-req="1" aria-required="true" data-tilda-rule="name" aria-describedby="error_1496239431201">
+                        <input type="text" autocomplete="name" name="name" id="input_1496239431201"  class="t-input js-tilda-rule  style-mTPoK" value="" data-tilda-req="1" aria-required="true" data-tilda-rule="name" aria-describedby="error_1496239431201">
                         <div class="t-input-error" aria-live="polite" id="error_1496239431201">
                         </div>
                     </div>
@@ -748,7 +620,7 @@
                         Your E-mail
                     </label>
                     <div class="t-input-block ">
-                        <input type="email" autocomplete="email" name="Email" id="input_1496239459190" class="t-input js-tilda-rule  style-q5qoH" value="" data-tilda-req="1" aria-required="true" data-tilda-rule="email" aria-describedby="error_1496239459190">
+                        <input type="email" autocomplete="email" name="email" id="input_1496239459190" class="t-input js-tilda-rule  style-q5qoH" value="" data-tilda-req="1" aria-required="true" data-tilda-rule="email" aria-describedby="error_1496239459190">
                         <div class="t-input-error" aria-live="polite" id="error_1496239459190">
                         </div>
                     </div>
@@ -758,14 +630,12 @@
                         Your phone number
                     </label>
                     <div class="t-input-block ">
-                        <input type="tel" autocomplete="tel" name="Phone" id="input_1496239478607" class="t-input js-tilda-rule  style-l899t" value="" data-tilda-req="1" aria-required="true" data-tilda-rule="phone" pattern="[0-9]*" aria-describedby="error_1496239478607">
+                        <input type="tel" autocomplete="tel" name="phone" id="input_1496239478607" class="t-input js-tilda-rule  style-l899t" value="" data-tilda-req="1" aria-required="true" data-tilda-rule="phone" pattern="[0-9]*" aria-describedby="error_1496239478607">
                         <div class="t-input-error" aria-live="polite" id="error_1496239478607">
                         </div>
                     </div>
                 </div>
 
-
-          </span>
                 <div class="t-form__submit">
                     <button type="submit" class="t-submit style-7m3m6" data-field="buttontitle" data-buttonfieldset="button" id="style-7m3m6">
                         BUY
@@ -773,9 +643,11 @@
                 </div>
             </div>
 
+        <div th:if="${param.success}" class="success-message">
+            <p>Ваш заказ успешно размещен!</p>
+        </div>
         </form>
-    </div>
+
 </div>
-</form>
 </body>
 </html>
